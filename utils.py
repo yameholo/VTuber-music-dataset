@@ -1,6 +1,16 @@
 import json
 from datetime import datetime, timedelta
 
+import os
+from typing import List
+
+import pandas as pd
+
+__DEMO_DATA_JSON = "data/demo.json"
+__VTUBER_MUSIC_DATA_CSV = "data/vtuber_music.csv"
+
+__DF_COLUMNS = ("vtuber", "music", "original", "collab", "id", "channelId", "publishedAt", "memo")
+
 
 def init_params():
     return {
@@ -9,9 +19,24 @@ def init_params():
 
 
 def create_demo_data():
-    with open("data/demo.json") as f:
+    with open(__DEMO_DATA_JSON) as f:
         _data = json.load(f)
     return _data
+
+
+def load_csv_data():
+    if os.path.exists(__VTUBER_MUSIC_DATA_CSV):
+        return pd.read_csv(__VTUBER_MUSIC_DATA_CSV)
+    return pd.DataFrame({k: [] for k in __DF_COLUMNS})
+
+
+def append_data(df: pd.DataFrame, data_list: List):
+    sr = pd.Series(data_list, index=__DF_COLUMNS)
+    return df.append(sr, ignore_index=True)
+
+
+def save_csv(df: pd.DataFrame):
+    df.to_csv(__VTUBER_MUSIC_DATA_CSV)
 
 
 def get_jpn_datetime(dts: str):
@@ -38,3 +63,7 @@ def create_params(data):
         "id": _id,
         "channel_id": channel_id,
     }
+
+
+def exists_id(df: pd.DataFrame, _id: str):
+    return df["id"].isin(_id)

@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="form-group px-2">
-                <input type="text" class="form-control" id="OtherVTuber" placeholder="input" style="display: none;">
+                <input type="text" class="form-control" id="OtherVTuber" name="OtherVTuber" placeholder="input" style="display: none;">
             </div>
         </div>
         <div class="form-row py-1">
@@ -58,14 +58,14 @@
             </div>
             <div class="form-group px-2 my-1">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isOtherMusic">
+                    <input class="form-check-input" type="checkbox" id="isOtherMusic" name="isOtherMusic">
                     <label class="form-check-label" for="isOtherMusic">
                         other
                     </label>
                 </div>
             </div>
             <div class="form-group px-2">
-                <input type="text" class="form-control" id="OtherMusic" placeholder="input" style="display: none;">
+                <input type="text" class="form-control" id="OtherMusic" name="OtherMusic" placeholder="input" style="display: none;">
             </div>
         </div>
         <div class="form-row py-1">
@@ -79,14 +79,14 @@
             </div>
             <div class="form-group px-2 my-1">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="isOtherOriginal">
+                    <input class="form-check-input" type="checkbox" id="isOtherOriginal" name="isOtherOriginal">
                     <label class="form-check-label" for="isOtherOriginal">
                         other
                     </label>
                 </div>
             </div>
             <div class="form-group px-2">
-                <input type="text" class="form-control" id="OtherOriginal" placeholder="input" style="display: none;">
+                <input type="text" class="form-control" id="OtherOriginal" name="OtherOriginal" placeholder="input" style="display: none;">
             </div>
         </div>
         <div class="form-row py-1">
@@ -105,12 +105,13 @@
         <div class="form-row py-1">
             <h4>メモ  : </h4>
             <div class="form-group px-2 col-8">
-                <input type="text" class="form-control" id="memo" placeholder="input">
+                <input type="text" class="form-control" id="memo" name="memo" placeholder="input">
             </div>
         </div>
         <div class="form-row py-1">
             <input type="hidden" name="id" value="{{params.id}}">
             <input type="hidden" name="channelId" value="{{params.channel_id}}">
+            <input type="hidden" name="publishedAt" value="{{params.published_at}}">
         </div>
         <div>
             <button type="submit" class="btn btn-success ml-3 px-5">決定</button>
