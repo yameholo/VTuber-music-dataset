@@ -9,7 +9,7 @@ import pandas as pd
 __DEMO_DATA_JSON = "data/demo.json"
 __VTUBER_MUSIC_DATA_CSV = "data/vtuber_music.csv"
 
-__DF_COLUMNS = ("vtuber", "music", "original", "collab", "id", "channelId", "publishedAt", "memo")
+__DF_COLUMNS = ("vtuber", "music", "original", "collab", "collabVTuber", "id", "channelId", "publishedAt", "memo")
 
 
 def init_params():
@@ -26,7 +26,7 @@ def create_demo_data():
 
 def load_csv_data():
     if os.path.exists(__VTUBER_MUSIC_DATA_CSV):
-        return pd.read_csv(__VTUBER_MUSIC_DATA_CSV)
+        return pd.read_csv(__VTUBER_MUSIC_DATA_CSV, index_col=0)
     return pd.DataFrame({k: [] for k in __DF_COLUMNS})
 
 

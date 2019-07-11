@@ -12,6 +12,7 @@ print(DF)
 def save_data(data):
     global DF
     data_list = parse_data(data)
+    print(data_list)
     DF = append_data(DF, data_list)
     save_csv(DF)
 
@@ -22,6 +23,7 @@ def parse_data(data: ImmutableMultiDict):
         data.get("music") if data.get("isOtherMusic") is None else data.get("OtherMusic"),
         data.get("original") if data.get("isOtherOriginal") is None else data.get("OtherOriginal"),
         "True" if data.get("isCollab") == "yes" else "False",
+        data.get("collabVTuber"),
         data.get('id'),
         data.get("channelId"),
         data.get("publishedAt"),
