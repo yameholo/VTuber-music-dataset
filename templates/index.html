@@ -5,10 +5,10 @@
     <form action="{{url_for('index')}}" method="get" class="px-5 py-3">
         <div class="form-group">
             <label class="h3">URL:</label>
-            <input name="url" class="form-control" type="text" placeholder="{{ params.url }}">
+            <input name="url" id="mainUrl" class="form-control" type="text" placeholder="{{ params.url }}">
         </div>
         <div>
-            <button type="submit" class="btn btn-success ml-3 px-5">select</button>
+            <button type="submit" id="mainUrlSubmit" class="btn btn-success ml-3 px-5" disabled>select</button>
         </div>
     </form>
     <br>
@@ -132,19 +132,32 @@
 <script type="text/javascript">
 $(function(){
     $("input[id=isOtherVTuber]").change(function(){
+        <!-- タグに歌ったVTuberがなかった場合に入力ボックスを作成する -->
         $("input[id=OtherVTuber]").toggle();
     });
 
     $("input[id=isOtherMusic]").change(function(){
+        <!-- タグに曲名がなかった場合に入力ボックスを作成する -->
         $("input[id=OtherMusic]").toggle();
     });
 
     $("input[id=isOtherOriginal]").change(function(){
+        <!-- タグに本家様がなかった場合に入力ボックスを作成する -->
         $("input[id=OtherOriginal]").toggle();
     });
 
     $('input[name="isCollab"]:radio').change(function(){
+        <!-- コラボしている場合のラジオボタンの押され方してたら、入力ボックスを作る -->
         $("input[id=collabVTuber]").toggle();
+    });
+
+    $('#mainUrl').on('input', function(){
+        <!-- URLの入力を正規表現でYouTubeのものだけに限定する -->
+        if ($('#mainUrl').val().match(/^https:\/\/www\.youtube\.com\/watch\?v=\w+$/)) {
+            $('#mainUrlSubmit').prop("disabled", false);
+        } else {
+            $('#mainUrlSubmit').prop("disabled", true);
+        }
     });
 });
 </script>
