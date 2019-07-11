@@ -2,7 +2,8 @@ from flask import Flask, request
 from flask import render_template
 from werkzeug.datastructures import ImmutableMultiDict
 
-from utils import init_params, create_params, create_demo_data, load_csv_data, append_data, save_csv, exists_id
+from utils import init_params, create_params, create_demo_data, load_csv_data, append_data, save_csv, exists_id, \
+    search_youtube
 
 app = Flask(__name__)
 DF = load_csv_data()
@@ -53,7 +54,7 @@ def index():
             params["url"] = url
             print(params)
             return render_template("index.html", params=params)
-        data = create_demo_data()
+        data = search_youtube(_id)
         params = create_params(data)
         return render_template("index.html", params=params)
 

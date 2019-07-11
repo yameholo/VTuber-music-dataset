@@ -1,16 +1,22 @@
 import json
 from datetime import datetime, timedelta
+from googleapiclient.discovery import build
 
 import os
 from typing import List
 
 import pandas as pd
 
+from keys import API_KEY
+
 __DEMO_DATA_JSON = "data/demo.json"
 __VTUBER_MUSIC_DATA_CSV = "data/vtuber_music.csv"
 
 __DF_COLUMNS = ("vtuber", "music", "original", "collab", "collabVTuber", "id", "channelId", "publishedAt", "memo")
 
+DEVELOPER_KEY = API_KEY
+YOUTUBE_API_SERVICE_NAME = "youtube"
+YOUTUBE_API_VERSION = "v3"
 
 def init_params():
     # jinja2レンダリングで使うjsonデータの初期値
@@ -76,3 +82,21 @@ def create_params(data):
 def exists_id(df: pd.DataFrame, _id: str):
     # dfにidが存在するか
     return _id in df["id"].tolist()
+
+
+def search_youtube(_id: str):
+    # YouTube Data APIを叩く
+    youtube = build(YOUTUBE_API_SERVICE_NAME, YOUTUBE_API_VERSION,
+                developerKey=DEVELOPER_KEY)
+    return youtube.videos().list(
+        id=_id,
+        part="id,snippet,statistics",
+        maxResults=1
+    ).execute()
+
+
+if __name__ == '__main__':
+    import json
+    data = search_youtube("dkWh74qgf8U")
+    print(json.dumps(data, indent=2))
+    print(create_params(data))
