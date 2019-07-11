@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="py-2">データ作成画面</h1>
+    <form action="{{url_for('index')}}" method="get" class="px-5 py-3">
+        <div class="form-group">
+            <label class="h3">URL:</label>
+            <input name="url" class="form-control" type="text" placeholder="{{ params.url }}">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success ml-3 px-5">select</button>
+        </div>
+    </form>
+    <br>
+    {% if params.init %}
+    <div class="row">
+        <div class="col-3">
+            <img src="{{params.thumbnail}}">
+        </div>
+        <div class="col">
+            <h4 class="px-5">Title : <font class="text-muted">{{ params.title }}</font></h4>
+            <h4 class="px-5">channel : <font class="text-muted">{{ params.channel }}</font></h4>
+            <h4 class="px-5">URL : <a href="{{ params.url }}" class="text-muted">{{ params.url }}</a></h4>
+            <h4 class="px-5">published at : <font class="text-muted">{{ params.published_at }}</font></h4>
+        </div>
+    </div>
+
+    <form action="{{url_for('index')}}" method="get" class="form px-5 py-3">
+        <div class="form-row py-1">
+            <h4>VTuber : </h4>
+            <div class="form-group px-2">
+                <select name="vtuber" class="form-control text-muted">
+                    {% for tag in params.tags %}
+                    <option>{{ tag }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group px-2 my-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isOtherVTuber" name="isOtherVTuber">
+                    <label class="form-check-label" for="isOtherVTuber">
+                        other
+                    </label>
+                </div>
+            </div>
+            <div class="form-group px-2">
+                <input type="text" class="form-control" id="OtherVTuber" placeholder="input" style="display: none;">
+            </div>
+        </div>
+        <div class="form-row py-1">
+            <h4>曲名 : </h4>
+            <div class="form-group px-2">
+                <select name="music" class="form-control text-muted">
+                    {% for tag in params.tags %}
+                    <option>{{ tag }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group px-2 my-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isOtherMusic">
+                    <label class="form-check-label" for="isOtherMusic">
+                        other
+                    </label>
+                </div>
+            </div>
+            <div class="form-group px-2">
+                <input type="text" class="form-control" id="OtherMusic" placeholder="input" style="display: none;">
+            </div>
+        </div>
+        <div class="form-row py-1">
+            <h4>御本家様  : </h4>
+            <div class="form-group px-2">
+                <select name="original" class="form-control text-muted">
+                    {% for tag in params.tags %}
+                    <option>{{ tag }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group px-2 my-1">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="isOtherOriginal">
+                    <label class="form-check-label" for="isOtherOriginal">
+                        other
+                    </label>
+                </div>
+            </div>
+            <div class="form-group px-2">
+                <input type="text" class="form-control" id="OtherOriginal" placeholder="input" style="display: none;">
+            </div>
+        </div>
+        <div class="form-row py-1">
+            <h4>コラボ？  : </h4>
+            <div class="form-group px-2">
+                <div class="form-check form-check-inline pl-2">
+                    <input class="form-check-input" type="radio" name="isCollab" id="isCollabNo" value="no" checked>
+                    <label class="form-check-label" for="isCollabNo">No</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="isCollab" id="isCollabYes" value="yes">
+                    <label class="form-check-label" for="isCollabYes">Yes</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-row py-1">
+            <h4>メモ  : </h4>
+            <div class="form-group px-2 col-8">
+                <input type="text" class="form-control" id="memo" placeholder="input">
+            </div>
+        </div>
+        <div class="form-row py-1">
+            <input type="hidden" name="id" value="{{params.id}}">
+            <input type="hidden" name="channelId" value="{{params.channel_id}}">
+        </div>
+        <div>
+            <button type="submit" class="btn btn-success ml-3 px-5">決定</button>
+        </div>
+    </form>
+    {% endif %}
+</div>
+
+{{ super() }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+
+<script type="text/javascript">
+$(function(){
+    $("input[id=isOtherVTuber]").change(function(){
+        $("input[id=OtherVTuber]").toggle();
+    });
+
+    $("input[id=isOtherMusic]").change(function(){
+        $("input[id=OtherMusic]").toggle();
+    });
+
+    $("input[id=isOtherOriginal]").change(function(){
+        $("input[id=OtherOriginal]").toggle();
+    });
+});
+</script>
+{% endblock %}

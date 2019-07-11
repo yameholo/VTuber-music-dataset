@@ -1,0 +1,87 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/Vx2zXHs6KW5kpwPAdhLGkB-SS48\"",
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  },
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "\"Bdx4f4ps3xCOOo1WZ91nTLkRZ_c/Af60JxSSm6FZWEWisiVvHYDTHVk\"",
+      "id": "dkWh74qgf8U",
+      "snippet": {
+        "publishedAt": "2019-07-05T12:00:04.000Z",
+        "channelId": "UCAr7rLi_Wn09G-XfTA07d4g",
+        "title": "【歌ってみた】だから僕は音楽を辞めた / ヨルシカ【Kotone(天神子兎音)cover】",
+        "description": "化物みたいな劣等感。\n\n▼本家様\nヨルシカ さん『だから僕は音楽を辞めた』\n作詞作曲、編曲(Words and Music)：n-buna さん\nVocal：suis さん\nhttps://www.youtube.com/watch?v=KTZ-y85Erus\n\n▼イラスト\nイラスト：長谷梨加 さん\nhttps://twitter.com/magatype\nhttps://www.pixiv.net/member.php?id=1699112\n\n▼動画\nねびる さん\nhttps://twitter.com/n_prol\n\n▼オケ制作\nハイカラサウンド さん\nTwitter：https://twitter.com/highkarasound\nYouTube：https://www.youtube.com/channel/UCFIAtyXz7XgNND_2GlE6t3A\n\n＝＝＝＝＝\nThank You  for watching🌷\n\n⛩Twitter⛩\nhttps://twitter.com/kotonegami\n\n⛩ニコニコ動画⛩\nhttp://ch.nicovideo.jp/tenjin-kotone\n\n⛩オリジナルグッズ・楽曲の情報はこちら！⛩\nhttp://u0u0.net/aBkv\n＝＝＝＝＝\n#バーチャルYouTuber #だから僕は音楽を辞めた #歌ってみた",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/dkWh74qgf8U/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/dkWh74qgf8U/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/dkWh74qgf8U/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/dkWh74qgf8U/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/dkWh74qgf8U/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "天神 子兎音 Tenjin Kotone",
+        "tags": [
+          "天神ことね",
+          "バーチャルYouTuber",
+          "VTuber",
+          "テンジンコトネ",
+          "てんじんことね",
+          "天神子兎音",
+          "バーチャルユーチューバー",
+          "いとうのいぢ",
+          "VR",
+          "アニメ",
+          "anime",
+          "3D",
+          "kawaii",
+          "Kotone",
+          "歌ってみた",
+          "だから僕は音楽を辞めた",
+          "ヨルシカ",
+          "歌い手",
+          "n-buna",
+          "suis"
+        ],
+        "categoryId": "10",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ja",
+        "localized": {
+          "title": "【歌ってみた】だから僕は音楽を辞めた / ヨルシカ【Kotone(天神子兎音)cover】",
+          "description": "化物みたいな劣等感。\n\n▼本家様\nヨルシカ さん『だから僕は音楽を辞めた』\n作詞作曲、編曲(Words and Music)：n-buna さん\nVocal：suis さん\nhttps://www.youtube.com/watch?v=KTZ-y85Erus\n\n▼イラスト\nイラスト：長谷梨加 さん\nhttps://twitter.com/magatype\nhttps://www.pixiv.net/member.php?id=1699112\n\n▼動画\nねびる さん\nhttps://twitter.com/n_prol\n\n▼オケ制作\nハイカラサウンド さん\nTwitter：https://twitter.com/highkarasound\nYouTube：https://www.youtube.com/channel/UCFIAtyXz7XgNND_2GlE6t3A\n\n＝＝＝＝＝\nThank You  for watching🌷\n\n⛩Twitter⛩\nhttps://twitter.com/kotonegami\n\n⛩ニコニコ動画⛩\nhttp://ch.nicovideo.jp/tenjin-kotone\n\n⛩オリジナルグッズ・楽曲の情報はこちら！⛩\nhttp://u0u0.net/aBkv\n＝＝＝＝＝\n#バーチャルYouTuber #だから僕は音楽を辞めた #歌ってみた"
+        },
+        "defaultAudioLanguage": "ja"
+      },
+      "statistics": {
+        "viewCount": "52385",
+        "likeCount": "3833",
+        "dislikeCount": "26",
+        "favoriteCount": "0",
+        "commentCount": "311"
+      }
+    }
+  ]
+}
+
