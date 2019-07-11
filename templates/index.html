@@ -160,7 +160,7 @@ $(function(){
 
     $('#mainUrl').on('input', function(){
         <!-- URLの入力を正規表現でYouTubeのものだけに限定する -->
-        if ($('#mainUrl').val().match(/^https:\/\/www\.youtube\.com\/watch\?v=\w+$/)) {
+        if ($('#mainUrl').val().match(/^https:\/\/www\.youtube\.com\/watch\?v=[\w_-]+$/)) {
             $('#mainUrlSubmit').prop("disabled", false);
         } else {
             $('#mainUrlSubmit').prop("disabled", true);
