@@ -13,37 +13,45 @@ __DF_COLUMNS = ("vtuber", "music", "original", "collab", "collabVTuber", "id", "
 
 
 def init_params():
+    # jinja2レンダリングで使うjsonデータの初期値
     return {
         "init": False,
+        "existsUrl": False,
     }
 
 
 def create_demo_data():
+    # デモデータを使う
     with open(__DEMO_DATA_JSON) as f:
         _data = json.load(f)
     return _data
 
 
 def load_csv_data():
+    # csvからdfをロード
     if os.path.exists(__VTUBER_MUSIC_DATA_CSV):
         return pd.read_csv(__VTUBER_MUSIC_DATA_CSV, index_col=0)
     return pd.DataFrame({k: [] for k in __DF_COLUMNS})
 
 
 def append_data(df: pd.DataFrame, data_list: List):
+    # dfにデータを追加
     sr = pd.Series(data_list, index=__DF_COLUMNS)
     return df.append(sr, ignore_index=True)
 
 
 def save_csv(df: pd.DataFrame):
+    # csvにdfを保存
     df.to_csv(__VTUBER_MUSIC_DATA_CSV)
 
 
 def get_jpn_datetime(dts: str):
+    # ISOなんとか時間から日本の標準時間にする
     return datetime.strptime(dts, '%Y-%m-%dT%H:%M:%S.000Z') + timedelta(hours=9)
 
 
 def create_params(data):
+    # youtube apiから来たjsonデータから必要なところだけ取り出す
     tags = data["items"][0]["snippet"]["tags"]
     title = data["items"][0]["snippet"]["title"]
     _id = data["items"][0]["id"]
@@ -62,8 +70,9 @@ def create_params(data):
         "tags": tags,
         "id": _id,
         "channel_id": channel_id,
+        "existsUrl": False,
     }
 
-
 def exists_id(df: pd.DataFrame, _id: str):
-    return df["id"].isin(_id)
+    # dfにidが存在するか
+    return _id in df["id"].tolist()

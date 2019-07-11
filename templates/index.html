@@ -2,6 +2,13 @@
 {% block content %}
 <div class="container">
     <h1 class="py-2">データ作成画面</h1>
+    {% if params.existsUrl %}
+    <div class="card border-success">
+        <div class="card-body py-2 text-success">
+            {{ params.url }}は登録済みです
+        </div>
+    </div>
+    {% endif %}
     <form action="{{url_for('index')}}" method="get" class="px-5 py-3">
         <div class="form-group">
             <label class="h3">URL:</label>
