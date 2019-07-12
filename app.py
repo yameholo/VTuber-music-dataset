@@ -40,7 +40,7 @@ def index():
     if url == "":
         vtuber = request.args.get("vtuber", "")
         if vtuber != "":
-            print(request.args)
+            # print(request.args)
             save_data(request.args)
 
         params = init_params()
@@ -55,6 +55,7 @@ def index():
             print(params)
             return render_template("index.html", params=params)
         data = search_youtube(_id)
+        # print(data)
         params = create_params(data)
         return render_template("index.html", params=params)
 
